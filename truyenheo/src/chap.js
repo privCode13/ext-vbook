@@ -6,9 +6,11 @@ function execute(url) {
     var response = fetch(url);
     if (response.ok) {
         var doc = response.html();
-        var htm = $.Q(doc, '.ndtruyen', { remove: 'em, center, a[target="_blank"]' }).html();
+        var htm = $.Q(doc, '.ndtruyen', { remove: '' }).html();
         htm = htm.replace(/<br>|\\n/g,"<br><br>")
         return Response.success(htm);
     }
     return null;
 }
+
+//em, center, a[target="_blank"]
